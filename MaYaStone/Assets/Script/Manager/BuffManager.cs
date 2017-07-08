@@ -11,11 +11,13 @@ public class BuffManager : MonoBehaviour
     {
         hostPlayer = GetComponent<Player>();
         Messenger.AddListener<BuffBase>(BuffEvent.Add, BuffAdd);
+        Messenger.AddListener<BuffBase>(BuffEvent.Remove, BuffRemove);
     }
 
     public void OnDestroy()
     {
         Messenger.RemoveListener<BuffBase>(BuffEvent.Add, BuffAdd);
+        Messenger.RemoveListener<BuffBase>(BuffEvent.Remove, BuffRemove);
     }
     void BuffAdd(BuffBase buff)
     {
@@ -30,6 +32,10 @@ public class BuffManager : MonoBehaviour
             buffList.Add(buff);
         }        
     }
+    void BuffRemove(BuffBase buff)
+    {
+        buffList.RemoveAll(x => x.buffId == buff.buffId);
+    }
     public void Excute()
     {
         for (int i = 0; i < buffList.Count; i++)
@@ -43,6 +49,5 @@ public class BuffManager : MonoBehaviour
                 buffList[i].LogicEnd();
             }
         }
-        buffList.RemoveAll(x => x.buffTime < 0);
     }
 }

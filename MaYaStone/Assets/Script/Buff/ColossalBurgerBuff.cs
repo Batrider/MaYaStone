@@ -16,6 +16,8 @@ public class ColossalBurgerBuff : BuffBase {
     }
     public override void LogicEnd()
     {
-        iTween.ScaleBy(hostPlayer, 1 / size * Vector3.one, 0.1f);
+        iTween.ScaleTo(hostPlayer, 1 / size * Vector3.one, 0.1f);
+
+        Messenger.Broadcast<BuffBase>(BuffEvent.Remove, this);
     }
 }

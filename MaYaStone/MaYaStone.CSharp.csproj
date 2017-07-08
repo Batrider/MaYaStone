@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Buff\BuffBase.cs" />
     <Compile Include="Assets\Script\Buff\ColossalBurgerBuff.cs" />
+    <Compile Include="Assets\Script\EffectItem\AcceleratingRibbon.cs" />
     <Compile Include="Assets\Script\Manager\BuffManager.cs" />
     <Compile Include="Assets\Script\Manager\Callback.cs" />
     <Compile Include="Assets\Script\Manager\CameraFollower.cs" />
