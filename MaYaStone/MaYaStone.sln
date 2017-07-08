@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaYaStone.CSharp.Plugins", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaYaStone.CSharp", "MaYaStone.CSharp.csproj", "{13832631-F7D5-F2ED-535D-73A1291B2F37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaYaStone.CSharp.Editor", "MaYaStone.CSharp.Editor.csproj", "{A14A9E4C-B5FD-3B8E-56EB-422EB560088C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{13832631-F7D5-F2ED-535D-73A1291B2F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13832631-F7D5-F2ED-535D-73A1291B2F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13832631-F7D5-F2ED-535D-73A1291B2F37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A14A9E4C-B5FD-3B8E-56EB-422EB560088C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A14A9E4C-B5FD-3B8E-56EB-422EB560088C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A14A9E4C-B5FD-3B8E-56EB-422EB560088C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A14A9E4C-B5FD-3B8E-56EB-422EB560088C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
