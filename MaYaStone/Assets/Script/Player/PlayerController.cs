@@ -18,11 +18,19 @@ public class PlayerController : MonoBehaviour
     {
         player.AddForce(accelerFactor * new Vector3(Input.acceleration.x, 0, Input.acceleration.y));
 #if UNITY_EDITOR
-        if(Input.GetMouseButton(0))
+        if(Input.GetKey(KeyCode.UpArrow))
+        {
+            player.AddForce(Vector3.forward);
+        }
+        else if(Input.GetKey(KeyCode.DownArrow))
+        {
+            player.AddForce(Vector3.back);
+        }
+        else if(Input.GetKey(KeyCode.LeftArrow))
         {
             player.AddForce(Vector3.left);
         }
-        else if(Input.GetMouseButton(1))
+        else if(Input.GetKey(KeyCode.RightArrow))
         {
             player.AddForce(Vector3.right);
         }

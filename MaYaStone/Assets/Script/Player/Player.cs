@@ -16,19 +16,35 @@ public class Player : MonoBehaviour
         controller = GetComponent<PlayerController>();
         buffManager = GetComponent<BuffManager>();
         playerScale = transform.localScale;
+
+        Messenger.AddListener(PlayerEvent.Dead, Dead);
+    }
+
+    public void OnDestroy()
+    {
+        Messenger.RemoveListener(PlayerEvent.Dead, Dead);
+    }
+
+    void Dead()
+    {
+        //播放死亡特效--
+
+
+        Debug.Log("dead!");
+
+        SceneManager.LoadScene("main");
     }
     public void Update()
     {
         buffManager.Excute();
+
     }
 
     public void LateUpdate()
     {
         if (transform.position.y < deadLine)
         {
-            Debug.Log("dead!");
-
-            SceneManager.LoadScene("main");
+            Dead();
         }
     }
 }

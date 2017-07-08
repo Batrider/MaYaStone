@@ -30,7 +30,7 @@ public class BuffManager : MonoBehaviour
         {
             buff.LogicStart();
             buffList.Add(buff);
-        }        
+        }
     }
     void BuffRemove(BuffBase buff)
     {

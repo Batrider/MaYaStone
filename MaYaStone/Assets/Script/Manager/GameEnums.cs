@@ -1,6 +1,4 @@
 ﻿
-
-
 public enum BuffEvent
 {
     Add,
@@ -12,3 +10,10 @@ public enum PlayerState
     God,//无敌
     Dead,//死亡
 }
+public enum PlayerEvent
+{
+    Born,
+    ReBorn,
+    Dead,
+}
+
