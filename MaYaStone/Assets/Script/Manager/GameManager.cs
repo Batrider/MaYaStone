@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     public const float timeSlice = 0.02f;
     static Player hostPlayer;
     public static Player HostPlayer
@@ -22,9 +21,22 @@ public class GameManager : MonoBehaviour
             return hostPlayer;
         }
     }
+    public static int ProgressPercent
+    {
+        get
+        {
+            return PlayerPrefs.GetInt("ProgressPercent");
+        }
+        set
+        {
+            PlayerPrefs.SetInt("ProgressPercent", value);
+        }
+    }
+
 
     public void Awake()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        GameObject.DontDestroyOnLoad(gameObject);
     }
 }

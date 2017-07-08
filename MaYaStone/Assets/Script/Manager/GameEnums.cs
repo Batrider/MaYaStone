@@ -15,6 +15,7 @@ public enum PlayerEvent
     Born,
     ReBorn,
     Dead,
+    ChangeState,
 }
 
 public enum TerrainType

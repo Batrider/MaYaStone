@@ -18,21 +18,29 @@ public class Player : MonoBehaviour
         playerScale = transform.localScale;
 
         Messenger.AddListener(PlayerEvent.Dead, Dead);
+        Messenger.AddListener<PlayerState>(PlayerEvent.ChangeState, ChangeState);
     }
 
     public void OnDestroy()
     {
         Messenger.RemoveListener(PlayerEvent.Dead, Dead);
+        Messenger.RemoveListener<PlayerState>(PlayerEvent.ChangeState, ChangeState);
     }
 
+    public void ChangeState(PlayerState state)
+    {
+        this.state = state;
+    }
     public void Dead()
     {
-        //播放死亡特效--
-
-
-        Debug.Log("dead!");
-        Destroy(gameObject);
-        SceneManager.LoadSceneAsync("main");
+        if (state != PlayerState.God)
+        {
+            //播放死亡特效--
+            Debug.Log("dead!");
+            Destroy(gameObject);
+            //Messenger.Cleanup();
+            SceneManager.LoadSceneAsync("main");
+        }
     }
     public void Update()
     {

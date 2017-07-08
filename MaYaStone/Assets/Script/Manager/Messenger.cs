@@ -354,10 +354,4 @@ public sealed class MessengerHelper : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
     }
-
-    //Clean up eventTable every time a new level loads.
-    public void OnLevelWasLoaded(int unused)
-    {
-        Messenger.Cleanup();
-    }
 }
