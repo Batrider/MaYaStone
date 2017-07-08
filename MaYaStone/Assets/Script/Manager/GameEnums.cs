@@ -17,3 +17,10 @@ public enum PlayerEvent
     Dead,
 }
 
+public enum TerrainType
+{
+    None,
+    Brick1,
+    Brick2,
+}
+
