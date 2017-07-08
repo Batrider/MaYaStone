@@ -25,3 +25,16 @@ public enum TerrainType
     Brick2,
 }
 
+public enum GameState
+{
+    Play,
+    Pause,
+    End,
+}
+public enum GameEvent
+{
+    Start,
+    StateChange,
+    End,
+}
+

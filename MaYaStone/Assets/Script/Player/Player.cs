@@ -38,8 +38,7 @@ public class Player : MonoBehaviour
             //播放死亡特效--
             Debug.Log("dead!");
             Destroy(gameObject);
-            //Messenger.Cleanup();
-            SceneManager.LoadSceneAsync("main");
+            GameManager.Instance.BttleEnd();
         }
     }
     public void Update()

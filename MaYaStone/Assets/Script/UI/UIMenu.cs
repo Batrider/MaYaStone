@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UIMenu : MonoBehaviour {
 
@@ -19,13 +18,15 @@ public class UIMenu : MonoBehaviour {
             UIEventListener.Get(stageList[index].boxColliderObj).onClick = (x) => OpenStage(stageList[index]);
         }
         centerChild.onFinished += OnCenterFinish;
+
+        GameManager manager = GameManager.Instance;
     }
 
     void OpenStage(UIStageItem stage)
     {
         if (stage.stageIndex == 1)
         {
-            SceneManager.LoadScene("Level1");
+            GameManager.Instance.LoadLevel(stage.stageIndex);
         }
     }
     void OnCenterFinish()
