@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpringPoint : MonoBehaviour
 {
-    public int force;
+    public int forwardForce;
+    public int upForce;
     Spring spring;
     void Start()
     {

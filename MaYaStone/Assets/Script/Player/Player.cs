@@ -25,14 +25,14 @@ public class Player : MonoBehaviour
         Messenger.RemoveListener(PlayerEvent.Dead, Dead);
     }
 
-    void Dead()
+    public void Dead()
     {
         //播放死亡特效--
 
 
         Debug.Log("dead!");
-
-        SceneManager.LoadScene("main");
+        Destroy(gameObject);
+        SceneManager.LoadSceneAsync("main");
     }
     public void Update()
     {

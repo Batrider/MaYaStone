@@ -11,7 +11,7 @@ public class ColossalBurger : MonoBehaviour
         {
             buff.hostPlayer = other.gameObject;
             Messenger.Broadcast<BuffBase>(BuffEvent.Add, buff);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

@@ -11,13 +11,13 @@ public class Spring : MonoBehaviour
         int index = points.FindIndex(x => x == point);
         if (index >= 0)
         {
-            if (points.Count > index + 1 && point.force > 0)
+            if (points.Count > index + 1 && point.forwardForce > 0)
             {
                 var nextPoint = points[index + 1];
                 var dir = Vector3.Normalize(nextPoint.transform.position - point.transform.position);
                 Rigidbody body = target.GetComponent<Rigidbody>();
                 body.velocity = Vector3.zero;
-                body.AddForce((dir + Vector3.up) * point.force);
+                body.AddForce(dir * point.forwardForce + Vector3.up * point.upForce);
             }
         }
     }

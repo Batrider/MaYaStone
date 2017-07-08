@@ -19,7 +19,7 @@ public class BuffManager : MonoBehaviour
         Messenger.RemoveListener<BuffBase>(BuffEvent.Add, BuffAdd);
         Messenger.RemoveListener<BuffBase>(BuffEvent.Remove, BuffRemove);
     }
-    void BuffAdd(BuffBase buff)
+    public void BuffAdd(BuffBase buff)
     {
         var myBuff = buffList.Find(x => x.buffId == buff.buffId);
         if (myBuff != null)
