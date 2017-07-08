@@ -9,6 +9,7 @@ public class Deathtrap : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            gameObject.SetActive(false);
             Messenger.Broadcast(PlayerEvent.Dead);
         }
     }
