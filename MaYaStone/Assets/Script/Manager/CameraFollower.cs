@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraFollower : MonoBehaviour
 {
     public Vector3 distance;
+    public float followSpeed;
     Transform target;
     void Start()
     {
@@ -15,7 +16,7 @@ public class CameraFollower : MonoBehaviour
     {
         if (target != null)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, transform.position.y, target.transform.position.z + distance.z), Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, transform.position.y, target.transform.position.z + distance.z), followSpeed * Time.deltaTime);
         }
     }
 }

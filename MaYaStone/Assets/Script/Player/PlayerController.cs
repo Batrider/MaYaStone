@@ -17,23 +17,25 @@ public class PlayerController : MonoBehaviour
     public void FixedUpdate()
     {
         player.AddForce(accelerFactor * new Vector3(Input.acceleration.x, 0, Input.acceleration.y));
+        if (player)
 #if UNITY_EDITOR
-        if(Input.GetKey(KeyCode.UpArrow))
-        {
-            player.AddForce(Vector3.forward);
-        }
-        else if(Input.GetKey(KeyCode.DownArrow))
-        {
-            player.AddForce(Vector3.back);
-        }
-        else if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            player.AddForce(Vector3.left);
-        }
-        else if(Input.GetKey(KeyCode.RightArrow))
-        {
-            player.AddForce(Vector3.right);
-        }
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                player.AddForce(accelerFactor * Vector3.forward);
+            }
+            else if (Input.GetKey(KeyCode.DownArrow))
+            {
+                player.AddForce(accelerFactor * Vector3.back);
+            }
+            else if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                player.AddForce(accelerFactor * Vector3.left);
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                player.AddForce(accelerFactor * Vector3.right);
+            }
 #endif
+        Debug.Log(player.velocity);
     }
 }
