@@ -233,12 +233,15 @@
     <Compile Include="Assets\Script\Obstacle\AcceleratingRibbon.cs" />
     <Compile Include="Assets\Script\Obstacle\ColossalBurger.cs" />
     <Compile Include="Assets\Script\Obstacle\Deathtrap.cs" />
+    <Compile Include="Assets\Script\Obstacle\Movetrap.cs" />
     <Compile Include="Assets\Script\Obstacle\Split.cs" />
     <Compile Include="Assets\Script\Obstacle\Spring.cs" />
     <Compile Include="Assets\Script\Obstacle\SpringPoint.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerController.cs" />
     <Compile Include="Assets\Script\TerrainCudeSelector.cs" />
+    <Compile Include="Assets\Script\UI\UIMenu.cs" />
+    <Compile Include="Assets\Script\UI\UIStageItem.cs" />
     <Compile Include="Assets\Water\Scripts\Water.cs" />
   </ItemGroup>
   <ItemGroup>
