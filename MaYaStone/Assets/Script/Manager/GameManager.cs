@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     public const float timeSlice = 0.02f;
     static Player hostPlayer;
@@ -10,15 +11,20 @@ public class GameManager : MonoBehaviour {
     {
         get
         {
-            if(hostPlayer == null)
+            if (hostPlayer == null)
             {
                 var playerObj = GameObject.FindGameObjectWithTag("Player");
                 if (playerObj != null)
                 {
                     hostPlayer = playerObj.GetComponent<Player>();
-                }                
+                }
             }
             return hostPlayer;
         }
+    }
+
+    public void Awake()
+    {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 }

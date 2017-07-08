@@ -6,8 +6,16 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("加速度因子")]
-    private float accelerFactor;
+    private float accelerFB;
+    [SerializeField]
+    private float accelerLR;
+    [SerializeField]
+    private float threshold;
+    [SerializeField]
+    private float brakeFactor;
     Rigidbody player;
+    [SerializeField]
+    private float maxSpeed;
 
     void Start()
     {
@@ -16,25 +24,77 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        player.AddForce(accelerFactor * new Vector3(Input.acceleration.x, 0, Input.acceleration.y));
-        if (player)
+        if (Mathf.Max(Mathf.Abs(player.velocity.y), Mathf.Abs(player.velocity.z)) > maxSpeed)
+        {
+            return;
+        }
+        if (Mathf.Abs(Input.acceleration.x) > threshold)
+        {
+            if (player.velocity.y * Input.acceleration.x > 0)
+            {
+                player.AddForce(accelerLR * Input.acceleration.x * Vector3.right);
+            }
+            else
+            {
+                player.AddForce(brakeFactor * accelerLR * Input.acceleration.x * Vector3.right);
+            }
+        }
+        if (Mathf.Abs(Input.acceleration.y) > threshold)
+        {
+            if (player.velocity.z * Input.acceleration.y > 0)
+            {
+                player.AddForce(accelerFB * Input.acceleration.y * Vector3.forward);
+            }
+            else
+            {
+                player.AddForce(brakeFactor * accelerFB * Input.acceleration.y * Vector3.forward);
+            }
+        }
 #if UNITY_EDITOR
-            if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            if (player.velocity.y * Input.acceleration.y >= 0)
             {
-                player.AddForce(accelerFactor * Vector3.forward);
+                player.AddForce(accelerFB * Vector3.forward);
             }
-            else if (Input.GetKey(KeyCode.DownArrow))
+            else
             {
-                player.AddForce(accelerFactor * Vector3.back);
+                player.AddForce(brakeFactor * accelerFB * Vector3.forward);
             }
-            else if (Input.GetKey(KeyCode.LeftArrow))
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            if (player.velocity.y * Input.acceleration.y >= 0)
             {
-                player.AddForce(accelerFactor * Vector3.left);
+                player.AddForce(accelerFB * Vector3.back);
             }
-            else if (Input.GetKey(KeyCode.RightArrow))
+            else
             {
-                player.AddForce(accelerFactor * Vector3.right);
+                player.AddForce(brakeFactor * accelerFB * Vector3.back);
             }
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            if (player.velocity.x * Input.acceleration.x >= 0)
+            {
+                player.AddForce(accelerLR * Vector3.left);
+            }
+            else
+            {
+                player.AddForce(brakeFactor * accelerLR * Vector3.left);
+            }
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            if (player.velocity.x * Input.acceleration.x >= 0)
+            {
+                player.AddForce(accelerLR * Vector3.right);
+            }
+            else
+            {
+                player.AddForce(brakeFactor * accelerLR * Vector3.right);
+            }
+        }
 #endif
         Debug.Log(player.velocity);
     }
