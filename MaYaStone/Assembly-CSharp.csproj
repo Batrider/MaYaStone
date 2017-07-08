@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Buff\BuffBase.cs" />
      <Compile Include="Assets\Script\Buff\ColossalBurgerBuff.cs" />
+     <Compile Include="Assets\Script\Buff\SplitBuff.cs" />
      <Compile Include="Assets\Script\Manager\BuffManager.cs" />
      <Compile Include="Assets\Script\Manager\Callback.cs" />
      <Compile Include="Assets\Script\Manager\CameraFollower.cs" />
@@ -57,10 +58,12 @@
      <Compile Include="Assets\Script\Obstacle\AcceleratingRibbon.cs" />
      <Compile Include="Assets\Script\Obstacle\ColossalBurger.cs" />
      <Compile Include="Assets\Script\Obstacle\Deathtrap.cs" />
+     <Compile Include="Assets\Script\Obstacle\Split.cs" />
      <Compile Include="Assets\Script\Obstacle\Spring.cs" />
      <Compile Include="Assets\Script\Obstacle\SpringPoint.cs" />
      <Compile Include="Assets\Script\Player\Player.cs" />
      <Compile Include="Assets\Script\Player\PlayerController.cs" />
+     <Compile Include="Assets\Script\TerrainCudeSelector.cs" />
      <None Include="Assets\Shader\TSFOutline.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Unity1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
