@@ -33,6 +33,6 @@ public class UIMenu : MonoBehaviour {
     {
         UIStageItem item = centerChild.centeredObject.GetComponent<UIStageItem>();
         uiTexture.mainTexture = item.bgTexture;
-        progressLb.text = string.Format("{0}%", item.stageIndex);
+        progressLb.text = string.Format("{0}%", GameManager.Instance.Percent);
     }
 }

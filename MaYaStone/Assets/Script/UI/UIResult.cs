@@ -30,6 +30,24 @@ public class UIResult : MonoBehaviour {
         if (state == GameState.End)
         {
             gameObject.SetActive(true);
+            progressLb.text = string.Format("{0}%", GameManager.Instance.Percent);
+            historyScoreLb.text = GameManager.Instance.Score.ToString();
+
+
+            int historyScore = GameManager.Instance.Score;
+            historyScoreLb.text = historyScore.ToString();
+            int historyPercent = GameManager.Instance.Percent;
+
+            int curPercent = GameManager.Instance.CurPercent();
+            int curSocre = Mathf.CeilToInt(1000000f * curPercent / GameManager.Instance.timeConsum);
+            if (curSocre > historyScore)
+            {
+                GameManager.Instance.Score = curSocre;
+            }
+            if (curPercent > historyPercent)
+            {
+                GameManager.Instance.Percent = curPercent;
+            }
         }
     }
     void BackToMenu(GameObject obj)

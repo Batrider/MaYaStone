@@ -43,14 +43,18 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Score", value);
         }
     }
-    public void GetProgress(int StageIndex)
+    public int Percent
     {
-        PlayerPrefs.GetInt("Progress" + StageIndex);
+        get
+        {
+            return PlayerPrefs.GetInt("Percent", 0);
+        }
+        set
+        {
+            PlayerPrefs.SetInt("Percent", value);
+        }
     }
-    public void SetProgress(int StageIndex, int progress)
-    {
-        PlayerPrefs.SetInt("Progress" + StageIndex, progress);
-    }
+
     public void Awake()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
@@ -125,7 +129,7 @@ public class GameManager : MonoBehaviour
     {
         Score += score;
     }
-    public float CurPercent()
+    public int CurPercent()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
@@ -136,7 +140,7 @@ public class GameManager : MonoBehaviour
             {
                 float totalDistance = Vector3.Distance(startPoint.transform.position, endPoint.transform.position);
                 float curDistance = Vector3.Distance(player.transform.position, startPoint.transform.position);
-                return 100 * curDistance / totalDistance;
+                return (int)(100 * curDistance / totalDistance);
             }
         }
         return 0;

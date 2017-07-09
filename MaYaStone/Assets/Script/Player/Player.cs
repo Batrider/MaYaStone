@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     {
         if (transform.position.y < deadLine)
         {
+            state = PlayerState.Dead;
             Dead();
         }
     }
