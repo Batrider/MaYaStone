@@ -39,7 +39,8 @@ public class UIResult : MonoBehaviour {
             int historyPercent = GameManager.Instance.Percent;
 
             int curPercent = GameManager.Instance.CurPercent();
-            int curSocre = Mathf.CeilToInt(1000000f * curPercent / GameManager.Instance.timeConsum);
+            int curSocre = Mathf.CeilToInt(1000f * curPercent * curPercent / GameManager.Instance.timeConsum);
+            scoreLb.text = curSocre.ToString();
             if (curSocre > historyScore)
             {
                 GameManager.Instance.Score = curSocre;

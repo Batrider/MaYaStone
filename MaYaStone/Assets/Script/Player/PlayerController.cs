@@ -96,6 +96,5 @@ public class PlayerController : MonoBehaviour
             }
         }
 #endif
-        Debug.Log(player.velocity);
     }
 }

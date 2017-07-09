@@ -6,6 +6,7 @@ public class SpringPoint : MonoBehaviour
 {
     public int forwardForce;
     public int upForce;
+    public AudioClip clip;
     Spring spring;
     void Start()
     {
@@ -15,6 +16,12 @@ public class SpringPoint : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            GameManager.Instance.PlayClip(clip);
+            Animation anim = gameObject.GetComponent<Animation>();
+            if (anim != null)
+            {
+                anim.Play();
+            }
             spring.Launch(other.gameObject, this);
         }
     }

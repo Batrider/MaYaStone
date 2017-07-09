@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     PlayerController controller;
     BuffManager buffManager;
     public Vector3 playerScale;
+    public AudioClip deadClip;
     void Start()
     {
         controller = GetComponent<PlayerController>();
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour
         if (state != PlayerState.God)
         {
             //播放死亡特效--
-            Debug.Log("dead!");
+            GameManager.Instance.PlayClip(deadClip);
             Destroy(gameObject);
             GameManager.Instance.BttleEnd();
         }

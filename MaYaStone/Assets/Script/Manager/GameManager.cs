@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     }
     public float timeConsum = 0;
     public int curLevel = 0;
+    public AudioSource audioSource;
     public int Score
     {
         get
@@ -54,7 +55,18 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Percent", value);
         }
     }
-
+    public void PlayClip(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.loop = false;
+            }
+            audioSource.PlayOneShot(clip);
+        }
+    }
     public void Awake()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
@@ -110,7 +122,6 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Play;
         Time.timeScale = 1;
         SceneManager.LoadScene("Level" + stageIndex);
-        timeConsum = 0;
     }
 
     public void OnLevelWasLoaded(int level)
