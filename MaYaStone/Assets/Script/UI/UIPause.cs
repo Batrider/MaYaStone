@@ -23,6 +23,10 @@ public class UIPause : MonoBehaviour
 
         Messenger.AddListener<GameState>(GameEvent.StateChange, StateChange);
         pauseObj.SetActive(false);
+
+        TimeSpan t = new TimeSpan(0, 0, (int)GameManager.Instance.timeConsum);
+        timeLb.text = string.Format("{0}:{1}", t.Minutes < 10 ? "0" + t.Minutes : t.Minutes.ToString(), t.Seconds < 10 ? "0" + t.Seconds : t.Seconds.ToString());
+        progressLb.text = string.Format("{0}%", GameManager.Instance.CurPercent());
     }
 
     void StateChange(GameState state)
@@ -34,6 +38,13 @@ public class UIPause : MonoBehaviour
         else if (state == GameState.Pause)
         {
             pauseObj.SetActive(true);
+        }
+        else if(state == GameState.End)
+        {
+            timeLb.gameObject.SetActive(false);
+            resumeBtn.gameObject.SetActive(false);
+            timeLb.gameObject.SetActive(false);
+            progressLb.gameObject.SetActive(false);
         }
     }
 
@@ -54,7 +65,14 @@ public class UIPause : MonoBehaviour
 
     void Resume(GameObject obj)
     {
-        GameManager.Instance.Play();
+        if (GameManager.Instance.gameState == GameState.Pause)
+        {
+            GameManager.Instance.Play();
+        }
+        else if (GameManager.Instance.gameState == GameState.Play)
+        {
+            GameManager.Instance.Pause();
+        }
     }
 
     void BackToMenu(GameObject obj)
