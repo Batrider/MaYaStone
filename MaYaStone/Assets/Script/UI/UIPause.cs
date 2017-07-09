@@ -11,6 +11,7 @@ public class UIPause : MonoBehaviour
     public UIButton restartBtn;
     public UILabel timeLb;
     public UILabel progressLb;
+    public GameObject pauseObj;
     // Use this for initialization
     void Start()
     {
@@ -18,22 +19,28 @@ public class UIPause : MonoBehaviour
         UIEventListener.Get(backBtn.gameObject).onClick = BackToMenu;
         UIEventListener.Get(resumeBtn.gameObject).onClick = Resume;
         UIEventListener.Get(restartBtn.gameObject).onClick = ReStart;
-        
+
 
         Messenger.AddListener<GameState>(GameEvent.StateChange, StateChange);
-
-        gameObject.SetActive(false);
+        pauseObj.SetActive(false);
     }
 
     void StateChange(GameState state)
     {
         if (state == GameState.Play)
         {
-            gameObject.SetActive(false);
+            pauseObj.SetActive(false);
         }
         else if (state == GameState.Pause)
         {
-            gameObject.SetActive(true);
+            pauseObj.SetActive(true);
+        }
+    }
+
+    public void Update()
+    {
+        if (Time.frameCount % 15 == 0)
+        {
             TimeSpan t = new TimeSpan(0, 0, (int)GameManager.Instance.timeConsum);
             timeLb.text = string.Format("{0}:{1}", t.Minutes < 10 ? "0" + t.Minutes : t.Minutes.ToString(), t.Seconds < 10 ? "0" + t.Seconds : t.Seconds.ToString());
             progressLb.text = string.Format("{0}%", GameManager.Instance.CurPercent());
