@@ -186,6 +186,7 @@
      <Compile Include="Assets\Script\Buff\BuffBase.cs" />
      <Compile Include="Assets\Script\Buff\ColossalBurgerBuff.cs" />
      <Compile Include="Assets\Script\Buff\SplitBuff.cs" />
+     <Compile Include="Assets\Script\Item\Gold.cs" />
      <Compile Include="Assets\Script\Manager\BuffManager.cs" />
      <Compile Include="Assets\Script\Manager\Callback.cs" />
      <Compile Include="Assets\Script\Manager\CameraFollower.cs" />
@@ -202,6 +203,11 @@
      <Compile Include="Assets\Script\Player\Player.cs" />
      <Compile Include="Assets\Script\Player\PlayerController.cs" />
      <Compile Include="Assets\Script\TerrainCudeSelector.cs" />
+     <Compile Include="Assets\Script\UI\CameraBlur.cs" />
+     <Compile Include="Assets\Script\UI\UIMenu.cs" />
+     <Compile Include="Assets\Script\UI\UIPause.cs" />
+     <Compile Include="Assets\Script\UI\UIResult.cs" />
+     <Compile Include="Assets\Script\UI\UIStageItem.cs" />
      <Compile Include="Assets\Water\Scripts\Water.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.9.2.txt" />
@@ -220,6 +226,7 @@
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
+     <None Include="Assets\Font\GunDanDont.fnt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 3.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
@@ -231,6 +238,7 @@
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+     <None Include="Assets\Shader\Blur.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text.shader" />
      <None Include="Assets\Shader\TSFOutline.shader" />
