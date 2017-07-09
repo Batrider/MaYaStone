@@ -256,6 +256,7 @@
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+    <None Include="Assets\Shader\Blur.shader" />
     <None Include="Assets\Shader\TSFOutline.shader" />
     <None Include="Assets\Water\Shaders\FlatShadedWaterWithEdgeBlend.shader" />
   </ItemGroup>

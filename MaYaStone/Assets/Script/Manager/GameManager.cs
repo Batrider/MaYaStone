@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public const float timeSlice = 0.02f;
     public GameState gameState = GameState.Play;
-    static private GameManager messengerHelper = (new GameObject("MessengerHelper")).AddComponent<GameManager>();
     public static int ProgressPercent
     {
         get
