@@ -224,6 +224,7 @@
     <Compile Include="Assets\Script\Buff\BuffBase.cs" />
     <Compile Include="Assets\Script\Buff\ColossalBurgerBuff.cs" />
     <Compile Include="Assets\Script\Buff\SplitBuff.cs" />
+    <Compile Include="Assets\Script\Item\Gold.cs" />
     <Compile Include="Assets\Script\Manager\BuffManager.cs" />
     <Compile Include="Assets\Script\Manager\Callback.cs" />
     <Compile Include="Assets\Script\Manager\CameraFollower.cs" />
@@ -240,11 +241,15 @@
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerController.cs" />
     <Compile Include="Assets\Script\TerrainCudeSelector.cs" />
+    <Compile Include="Assets\Script\UI\CameraBlur.cs" />
     <Compile Include="Assets\Script\UI\UIMenu.cs" />
+    <Compile Include="Assets\Script\UI\UIPause.cs" />
+    <Compile Include="Assets\Script\UI\UIResult.cs" />
     <Compile Include="Assets\Script\UI\UIStageItem.cs" />
     <Compile Include="Assets\Water\Scripts\Water.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Font\GunDanDont.fnt" />
     <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
     <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
@@ -286,6 +291,7 @@
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+    <None Include="Assets\Shader\Blur.shader" />
     <None Include="Assets\Shader\TSFOutline.shader" />
     <None Include="Assets\Water\Shaders\FlatShadedWaterWithEdgeBlend.shader" />
   </ItemGroup>
