@@ -121,4 +121,8 @@ public class GameManager : MonoBehaviour
         gameState = GameState.End;
         Messenger.Broadcast<GameState>(GameEvent.StateChange, gameState);
     }
+    public void GetGold(int score)
+    {
+        Score += score;
+    }
 }
