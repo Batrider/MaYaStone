@@ -5,12 +5,14 @@ using UnityEngine;
 public class ColossalBurger : MonoBehaviour
 {
     public ColossalBurgerBuff buff;
+    public AudioClip clip;
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             buff.hostPlayer = other.gameObject;
             Messenger.Broadcast<BuffBase>(BuffEvent.Add, buff);
+            GameManager.Instance.PlayClip(clip);
             gameObject.SetActive(false);
         }
     }
