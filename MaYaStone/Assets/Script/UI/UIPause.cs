@@ -18,11 +18,7 @@ public class UIPause : MonoBehaviour
         UIEventListener.Get(backBtn.gameObject).onClick = BackToMenu;
         UIEventListener.Get(resumeBtn.gameObject).onClick = Resume;
         UIEventListener.Get(restartBtn.gameObject).onClick = ReStart;
-
-
-
-        TimeSpan t = new TimeSpan(0, 0, (int)GameManager.Instance.timeConsum);
-        timeLb.text = string.Format("{0}:{1}", t.TotalMinutes, t.Seconds);
+        
 
         Messenger.AddListener<GameState>(GameEvent.StateChange, StateChange);
 
@@ -38,6 +34,9 @@ public class UIPause : MonoBehaviour
         else if (state == GameState.Pause)
         {
             gameObject.SetActive(true);
+            TimeSpan t = new TimeSpan(0, 0, (int)GameManager.Instance.timeConsum);
+            timeLb.text = string.Format("{0}:{1}", t.Minutes < 10 ? "0" + t.Minutes : t.Minutes.ToString(), t.Seconds < 10 ? "0" + t.Seconds : t.Seconds.ToString());
+            progressLb.text = string.Format("{0}%", GameManager.Instance.CurPercent());
         }
     }
 

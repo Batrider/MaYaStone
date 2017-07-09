@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
             {
                 Pause();
             }
-            else
+            else if(gameState == GameState.Pause)
             {
                 Play();
             }
@@ -124,5 +124,21 @@ public class GameManager : MonoBehaviour
     public void GetGold(int score)
     {
         Score += score;
+    }
+    public float CurPercent()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            GameObject startPoint = GameObject.FindGameObjectWithTag("startPoint");
+            GameObject endPoint = GameObject.FindGameObjectWithTag("endPoint");
+            if (startPoint != null && endPoint != null)
+            {
+                float totalDistance = Vector3.Distance(startPoint.transform.position, endPoint.transform.position);
+                float curDistance = Vector3.Distance(player.transform.position, startPoint.transform.position);
+                return 100 * curDistance / totalDistance;
+            }
+        }
+        return 0;
     }
 }

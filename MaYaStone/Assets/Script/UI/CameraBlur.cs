@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-//设置在编辑模式下也执行该脚本  
-[ExecuteInEditMode]
+
 //添加选项到菜单中  
 [AddComponentMenu("Custom/BlurEffect")]
 public class CameraBlur : MonoBehaviour
